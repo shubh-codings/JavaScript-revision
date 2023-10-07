@@ -46,24 +46,53 @@
 //Reference Types or Non-Primitive
 // Arrays, Objects, Functions
 
-const heroes = ['Shaktimaan', 'NaagRaaj', 'Doga']
+// const heroes = ['Shaktimaan', 'NaagRaaj', 'Doga']
 
-let obj = {
-    name:'Shubham',
-    rollNo:15533,
-    department:'CSE',
-    data:heroes
-}
+// let obj = {
+//     name:'Shubham',
+//     rollNo:15533,
+//     department:'CSE',
+//     data:heroes
+// }
 
-const func1= function (params) {
-    console.log("this is a function")
-}
+// const func1= function (params) {
+//     console.log("this is a function")
+// }
 
-// console.log(typeof id)
-console.log(typeof heroes)
-console.log(typeof obj)
-console.log(typeof func1)
+// // console.log(typeof id)
+// console.log(typeof heroes)
+// console.log(typeof obj)
+// console.log(typeof func1)
+
 // JavaScript is A Dynamically Typed Language
+
+
+//*****************Memory********************** */
+
+
+//Stack(Primitive), Heap(Reference)
+
+// let myYoutubeName = 'shubhk530'
+// let anotherName = myYoutubeName
+// console.log(myYoutubeName)
+// console.log(anotherName)
+// anotherName = 'shubh-codings'
+
+// console.log(myYoutubeName)
+// console.log(anotherName)
+
+// let user1 = {
+//     name:'Shubham',
+//     age:25
+// }
+
+// let user2 = user1;
+// console.log(user1)
+// console.log(user2)
+
+// user2.name = "Shushant"
+// console.log(user1)
+// console.log(user2)
 
 
 
