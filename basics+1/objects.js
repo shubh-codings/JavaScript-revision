@@ -42,7 +42,7 @@ tinderUser.name = "Shubham Singh"
 tinderUser.email = "shubh0@gmail.com"
 tinderUser.isLoggedIn = false
 
-console.log(tinderUser)
+// console.log(tinderUser)
 
 const regularUser={
     email:"someone @something.com",
@@ -63,4 +63,13 @@ obj3 = {...obj1,...obj2}
 // console.log(Object.keys(tinderUser))
 // console.log(Object.values(tinderUser))
 // console.log(Object.entries(tinderUser))
-console.log(tinderUser.hasOwnProperty("isLoggedIn"))
+// console.log(tinderUser.hasOwnProperty("isLoggedIn"))
+
+const course = {
+    courseName:"Java Script",
+    price:999,
+    courseInstructor:"Hitesh Chaudhary"
+}
+
+const {courseName, courseInstructor:instructor} = course//de-sturcturing of objects
+console.log(instructor)
