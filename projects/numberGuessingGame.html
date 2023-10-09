@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing Game</title>
+    <style>
+      .container,
+      .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: left;
+        font-size: 20px;
+        border: 1px solid rgb(15, 127, 135);
+      }
+      .form {
+        gap: 20px;
+        width: 100%;
+        border: 0px;
+        align-items: center;
+      }
+      .guesSubmit {
+        background-color: rgb(14, 13, 13);
+        color: antiquewhite;
+        padding: 5px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(74, 70, 70); color: antiquewhite">
+    <div class="container">
+      <h1>Number Guessing Game</h1>
+      <p>Try and guess a random number between 1 to 100.</p>
+      <p>You have ten attempt to guess the right number</p>
+      <form class="form">
+        <label for="guessField" id="guess">Guess A Number</label>
+        <input type="text" class="guesfield" id="guessField" />
+        <input
+          type="submit"
+          class="guesSubmit"
+          id="submit"
+          value="Submit Guess"
+        />
+      </form>
+      <div class="resultParas">
+        <p>Previous Gueses:<span class="guesses"></span></p>
+        <p>Remaining Gueses:<span class="remainingTries">10</span></p>
+        <p class="lowOrHigh"></p>
+        <button id="newGame" style="display: none;" onclick={startNewGame()}>Start New GAme</button>
+      </div>
+    </div>
+    <script>
+      const randomNumber = parseInt(Math.random() * 100 + 1);
+      console.log(randomNumber)
+      const guessField = document.querySelector("#guessField");
+      const submit = document.querySelector("#submit");
+      const resultParas = document.querySelector(".resultParas");
+      const guesses = document.querySelector(".guesses");
+      const remainingTries = document.querySelector(".remainingTries");
+      const lowOrHigh = document.querySelector(".lowOrHigh");
+      const newGame = document.querySelector('#newGame')
+
+      let playGame = true;
+      let prevGuess = [];
+      let noOfTries = 1;
+
+      submit.addEventListener("click", (e) => {
+        e.preventDefault(e);
+        if (playGame) {
+          validateGuess(guessField.value);
+        }
+        else{
+            endGame()
+        }
+      });
+
+      function validateGuess(guess) {
+        if (isNaN(guess) || guess < 1 || guess > 100) {
+          displayGuess(guess);
+          displayMsg("Please Input a valid guess.");
+          guessField.value = "";
+          prevGuess = [];
+        } else {
+          checkGuess(guess);
+        }
+      }
+      function checkGuess(guess) {
+        if (noOfTries <= 10) {
+          if (guess == randomNumber) {
+              displayMsg("You have guessed it right.");
+            prevGuess.push(guess);
+            displayGuess(guess);
+            endGame()
+          } else if (guess < randomNumber) {
+              displayMsg("Your guess is too low");
+            prevGuess.push(guess);
+            displayGuess(guess);
+          } else {
+              displayMsg("Your guess is too high");
+              prevGuess.push(guess);
+              displayGuess(guess);
+          }
+          noOfTries++;
+          guessCount();
+        } else {
+          endGame();
+        }
+      }
+      function displayGuess(guess) {
+        // console.log(prevGuess)
+        guesses.innerHTML = prevGuess;
+      }
+      function displayMsg(guess) {
+        lowOrHigh.innerHTML = `${guess}`;
+      }
+      function guessCount() {
+        const totalGuess = 10;
+        remainingTries.innerHTML = `<span>${totalGuess - noOfTries}</span>`;
+      }
+      function endGame(guess) {
+        guessField.value = "";
+        guessField.setAttribute("disabled", "");
+        prevGuess = [];
+        newGame.style.display="block"
+        playGame = false;
+      }
+      function startNewGame(guess) {
+        endGame()
+        lowOrHigh.innerHTML = ` `;
+        remainingTries.innerHTML =' '
+          guessField.removeAttribute("disabled");
+          newGame.style.display="NONE" 
+
+        playGame=true
+
+      }
+    </script>
+  </body>
+</html>
