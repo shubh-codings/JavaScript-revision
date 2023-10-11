@@ -21,8 +21,8 @@
         border-radius: 50%;
         cursor: pointer;
     }
-    #white{
-        background-color: #fff;
+    #cyan{
+        background-color: cyan;
     }
     #black{
         background-color: black;
@@ -39,7 +39,7 @@
 </style>
 <body>
     <div class="container">
-        <div class="theme" id="white"></div>
+        <div class="theme" id="cyan"></div>
         <div class="theme" id="black"></div>
         <div class="theme" id="grey"></div>
         <div class="theme" id="yellow"></div>
@@ -52,7 +52,7 @@
                 const body = document.querySelector("body")
                 console.log(e)
                 console.log(e.target.id)
-                if(e.target.id==='white'){
+                if(e.target.id==='cyan'){
                     body.style.backgroundColor=e.target.id;
                 }
                 if(e.target.id==='grey'){

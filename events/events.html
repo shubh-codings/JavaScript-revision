@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event handling</title>
+    <style>
+        .listItem{
+            list-style: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(58, 56, 56); color: antiquewhite;">
+    <div class="container">
+        <!-- <ul class="list" id="list">
+            <li class="listItem" id="shubham">Shubham</li>
+            <li class="listItem" id="parul">Parul</li>
+            <li class="listItem" id ="piyush">Piyush</li>
+            <li class="listItem" id="yash">Yash</li>
+            <li class="listItem" id="sumit">Sumit</li>
+            <li class="listItem" id="mohan">Mohan</li>
+            <li class="listItem" id="sonu">Sonu</li>
+            <li class="listItem" id="jyoti">Jyoti</li>
+        </ul> -->
+
+        <!-- <div>
+            <h1>Hello dost </h1>
+            <button id="stop">Stop</button>
+        </div> -->
+        <div>
+            <h1>Hello dost </h1>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        // document.getElementById('shubham').onclick = function(e){
+        //     console.log("clicked home")
+        // }
+        // document.getElementById("shubham").addEventListener("click",(e)=>{
+        //     console.log("clicked Shubham with add event listener")
+        //     // e.stopPropagation();
+        // },false)
+
+        //type, timeStamp, defaultPrevented, target, toElement, srcElememt, currentTarget
+        //clientX,clientY,ScreenX, ScreenY
+        //altKey, clt Key, shift key,key code
+
+
+        //Event Bubbling and Capturing
+        // bubbling is from inside element to outside element in event 
+        // in capturing event propogates from outside element to inside
+
+        // we put true in case of capturing and false in case of bubbling in event listener
+
+        // document.getElementById("list").addEventListener("click",(e)=>{
+        //     if(e.target.tagName==="LI"){
+        //         console.log(e.target.tagName)
+        //     e.target.remove();
+        //     }
+        //     // e.target.parentNode.removeChild(e.target)
+            
+        // },false)
+        // document.getElementById("jyoti").addEventListener("click",(e)=>{
+        //     e.preventDefault();
+        //     e.stopPropagation()
+        //     console.log("clicked jyoti with add event listener")
+            
+        // },false)
+
+        // function changeH1(){
+        //     document.querySelector("h1").innerHTML="Changed Heading"
+        //     console.log("changed heading")
+        // }
+        // const timeout1 = setTimeout((changeH1),5000);
+        // document.querySelector('#stop').addEventListener('click',()=>{
+        //     clearTimeout(timeout1)
+        //     console.log("stopped")
+        // })
+        
+        let setInterval2;
+       const printHello = ()=>{
+            console.log('hello')
+        }
+        document.querySelector("#start").addEventListener("click",()=> {
+            setInterval2 = setInterval(printHello,1000);
+        })
+        // const printHelloInterval = setInterval(printHello,1000)
+        document.querySelector("#stop").addEventListener("click",()=>{
+            // clearInterval(printHelloInterval)
+            // console.log(setInterval2)
+            clearInterval(setInterval2)
+        })
+        
+    </script>
+
+</body>
+</html>
