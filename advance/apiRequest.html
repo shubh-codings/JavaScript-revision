@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Request with Ajax</title>
+</head>
+<body style="background-color: #212121;">
+    
+    <script>
+        const requestURL = "https://api.github.com/users/shubh-codings"
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET",requestURL)
+        xhr.onreadystatechange=function (){
+            console.log(xhr.readyState)
+            if(xhr.readyState === 4){
+                const data = this.responseText
+                console.log(data.public_repos,)
+
+                const newDiv = document.createElement('div')
+                const p = document.createElement('textarea')
+                p.innerHTML =data
+                console.log(data)
+                newDiv.appendChild(p)
+                document.body.appendChild(newDiv)
+            }
+            
+        }
+
+        xhr.send()
+
+
+
+    </script>
+</body>
+</html>
